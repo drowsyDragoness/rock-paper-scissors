@@ -1,7 +1,5 @@
 let playerScore = 0
 let computerScore = 0
-let playerSelection;
-let computerSelection;
 
 // Random choice generator
 
@@ -20,10 +18,11 @@ function getRandomChoice() {
 // Game logic
 
 function playRound() {
-    playerSelection = prompt('Type ROCK, PAPER, or SCISSORS').toUpperCase();
-    computerSelection = getRandomChoice();
+    let playerSelection = prompt('Type ROCK, PAPER, or SCISSORS').toUpperCase();
+    let computerSelection = getRandomChoice();
     console.log(`You chose ${playerSelection}`);
     console.log(`Computer chose ${computerSelection}`);
+
     if (playerSelection === computerSelection) {
         return console.log('It\'s a tie!');
     } else if (playerSelection === 'ROCK') {
@@ -53,9 +52,17 @@ function playRound() {
     }
 }
 
+// Gameplay loop
 
+function game() {
+    for (let i = 0; i < 5; i++) {
+        playRound();
+        console.log(`Your score: ${playerScore}`);
+        console.log(`Computer score: ${computerScore}`);
+    }
 
-playRound();
+console.log('Game over! Play again?');
+}
 
-console.log(`Your score: ${playerScore}`);
-console.log(`Computer score: ${computerScore}`);
+game();
+
