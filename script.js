@@ -1,34 +1,35 @@
 function getRandomChoice() {
-    let i = Math.floor((Math.random() * 3));
-    if (i === 0) {
-        return "Rock";
-    } else if (i === 1) {
-        return "Paper";
-    } else {
-        return "Scissors";
+    let randomNumber = Math.floor((Math.random() * 3));
+    switch (randomNumber) {
+        case 0:
+            return 'ROCK';
+        case 1:
+            return 'PAPER';
+        case 2:
+            return 'SCISSORS';
     }
 }
 
 function playRound(playerSelection, computerSelection) {
     if (playerSelection === computerSelection) {
         return 'It\'s a tie!';
-    } else if (playerSelection === 'Rock') {
-        if (computerSelection === 'Paper') {
-            return 'Paper beats Rock. You lose!';
+    } else if (playerSelection === 'ROCK') {
+        if (computerSelection === 'PAPER') {
+            return 'PAPER beats ROCK. You lose!';
         } else {
-            return 'Rock beats Scissors. You win!';
+            return 'ROCK beats SCISSORS. You win!';
         }
-    } else if (playerSelection === 'Paper') {
-        if (computerSelection === 'Rock') {
-            return 'Paper beats Rock. You win!';
+    } else if (playerSelection === 'PAPER') {
+        if (computerSelection === 'ROCK') {
+            return 'PAPER beats ROCK. You win!';
         } else {
-            return 'Scissors beats Paper. You lose!';
+            return 'SCISSORS beats PAPER. You lose!';
         }
-    } else if (playerSelection === 'Scissors') {
-        if (computerSelection === 'Rock') {
-            return 'Rock beats Scissors. You lose!';
+    } else if (playerSelection === 'SCISSORS') {
+        if (computerSelection === 'ROCK') {
+            return 'ROCK beats SCISSORS. You lose!';
         } else {
-            return 'Scissors beats Paper. You win!';
+            return 'SCISSORS beats PAPER. You win!';
         }
     }
 }
