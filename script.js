@@ -1,6 +1,6 @@
 let playerScore = 0
 let computerScore = 0
-let playerSelection;
+let playerSelection = prompt('Type ROCK, PAPER, or SCISSORS').toUpperCase();
 let computerSelection;
 
 // Random choice generator
@@ -43,7 +43,6 @@ function playRound(playerSelection, computerSelection) {
     }
 }
 
-playerSelection = getRandomChoice();
 computerSelection = getRandomChoice();
 
 playRound(playerSelection, computerSelection);
