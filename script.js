@@ -1,3 +1,10 @@
+let playerScore = 0
+let computerScore = 0
+let playerSelection;
+let computerSelection;
+
+// Random choice generator
+
 function getRandomChoice() {
     let randomNumber = Math.floor((Math.random() * 3));
     switch (randomNumber) {
@@ -10,34 +17,38 @@ function getRandomChoice() {
     }
 }
 
+// Game logic
+
 function playRound(playerSelection, computerSelection) {
     if (playerSelection === computerSelection) {
         return 'It\'s a tie!';
     } else if (playerSelection === 'ROCK') {
         if (computerSelection === 'PAPER') {
-            return 'PAPER beats ROCK. You lose!';
+            return computerScore++;
         } else {
-            return 'ROCK beats SCISSORS. You win!';
+            return playerScore++;
         }
     } else if (playerSelection === 'PAPER') {
         if (computerSelection === 'ROCK') {
-            return 'PAPER beats ROCK. You win!';
+            return playerScore++;
         } else {
-            return 'SCISSORS beats PAPER. You lose!';
+            return computerScore++;
         }
     } else if (playerSelection === 'SCISSORS') {
         if (computerSelection === 'ROCK') {
-            return 'ROCK beats SCISSORS. You lose!';
+            return computerScore++;
         } else {
-            return 'SCISSORS beats PAPER. You win!';
+            return playerScore++;
         }
     }
 }
 
+playerSelection = getRandomChoice();
+computerSelection = getRandomChoice();
 
-const playerSelection = getRandomChoice();
-const computerSelection = getRandomChoice();
+playRound(playerSelection, computerSelection);
 
 console.log(`You chose: ${playerSelection}`);
 console.log(`Computer chose: ${computerSelection}`);
-console.log(playRound(playerSelection, computerSelection))
+console.log(`Your score: ${playerScore}`);
+console.log(`Computer score: ${computerScore}`);
